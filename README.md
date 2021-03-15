@@ -8,4 +8,4 @@ Contains the code used to select the hyperparameters for the final submission on
 
 ## SARS Cov-2 Sequence Analysis 
 
-Coming soon… 
+Exploratory analysis of SARS Cov-2 sequences. Complete description can be found at https://tavoglc.medium.com/
