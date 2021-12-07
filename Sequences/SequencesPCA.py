@@ -246,14 +246,11 @@ def MakeSequenceGraph(Sequence,NodeNames,viz=False):
     
     for k in range(len(processedSequence)-1):
         
-        try:
-            
+       if processedSequence[k] in NodeNames and processedSequence[k+1] in NodeNames:
+        
             current=localDict[processedSequence[k]]
-            foward=localDict[processedSequence[k+1]]
-            localGraph.add_edge(current,foward)
-            
-        except KeyError:
-            pass
+            forward=localDict[processedSequence[k+1]]
+            localGraph.add_edge(current,forward)
     
     return localGraph
 
@@ -333,9 +330,7 @@ for k ,block in enumerate(UniqueElementsBlock):
     else:
         KmerData=np.hstack((KmerData,localData))
 
-Mask=[True for k in range(KmerData.shape[0])]
-Mask[51128] = False
-Kmers = KmerData[Mask,:]
+Kmers = KmerData
 
 Scaler=pr.MinMaxScaler()
 Scaler.fit(Kmers)
